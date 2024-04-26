@@ -1,3 +1,5 @@
+using MayTheFourth.Application.Common.ClassBase;
+
 namespace MayTheFourth.Application.Features.Films
 {
     public class GetFilmsResponse
@@ -12,12 +14,5 @@ namespace MayTheFourth.Application.Features.Films
         public List<ItemDescription>? Planets { get; set; }
         public List<ItemDescription>? Vehicles { get; set; }
         public List<ItemDescription>? Starships { get; set; }
-
-    }
-
-    public class ItemDescription
-    {
-        public int? Id { get; set; }
-        public string? Name { get; set; }
     }
 }
