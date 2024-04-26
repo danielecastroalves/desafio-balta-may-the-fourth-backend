@@ -1,7 +1,8 @@
-using MayTheFourth.Application.Common.AppServices.PopulateFilms;
+using MayTheFourth.Application.Common.AppServices.PopulateStarships;
 using MayTheFourth.Application.Common.Repositories;
 using MayTheFourth.Domain.Entities;
 using MediatR;
+using Mapster;
 
 namespace MayTheFourth.Application.Features.Naves.GetStarships
 {
@@ -15,7 +16,7 @@ namespace MayTheFourth.Application.Features.Naves.GetStarships
     (
       IRepository<FilmEntity> filmRepository,
       IRepository<StarshipEntity> starshipRepository,
-      IPopulateStarshipsResponseAppService populateStarshipsResponseAppService
+      IPopulateStarshipsResponseAppService populateStarshipsAppService
     )
     {
       _filmRepository = filmRepository;

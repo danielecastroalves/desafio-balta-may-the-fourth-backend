@@ -1,16 +1,15 @@
-using MayTheFourth.Application.Common.AppServices.PopulateFilms;
 using MayTheFourth.Application.Features.Films;
 using MayTheFourth.Domain.Entities;
 
 namespace MayTheFourth.Application.Common.AppServices.PopulateStarships
 {
-  public class PopulateStarshipsResponseAppService : IPopulateStashipsResponseAppService
+  public class PopulateStarshipsResponseAppService : IPopulateStarshipsResponseAppService
   {
     public List<ItemDescription>? GetFilmList(StarshipEntity starship, IEnumerable<FilmEntity> filmList)
     {
       var movies = new List<ItemDescription>();
 
-      foreach (var item in starship.Movies!)
+      foreach (var item in starship.Films!)
       {
         var entity = filmList.FirstOrDefault(f => f.Url.Equals(item));
 
