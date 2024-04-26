@@ -65,7 +65,7 @@ namespace MayTheFourth.Application.Common.AppServices.PopulateDB
                 }
                 else
                 {
-                    filmEntity.Adapt(filmModel);
+                    filmModel.Adapt(filmEntity);
                     await _filmRepository.UpdateAsync(x => x.Url!.Equals(url), filmEntity, cancellationToken);
                 }
             }
@@ -99,7 +99,7 @@ namespace MayTheFourth.Application.Common.AppServices.PopulateDB
                 }
                 else
                 {
-                    personEntity.Adapt(personModel);
+                    personModel.Adapt(personEntity);
                     await _personRepository.UpdateAsync(x => x.Url!.Equals(url), personEntity, cancellationToken);
                 }
             }
@@ -132,7 +132,7 @@ namespace MayTheFourth.Application.Common.AppServices.PopulateDB
                 }
                 else
                 {
-                    planetEntity.Adapt(planetModel);
+                    planetModel.Adapt(planetEntity);
                     await _planetRepository.UpdateAsync(x => x.Url!.Equals(url), planetEntity, cancellationToken);
                 }
             }
@@ -165,7 +165,7 @@ namespace MayTheFourth.Application.Common.AppServices.PopulateDB
                 }
                 else
                 {
-                    specieEntity.Adapt(specieModel);
+                    specieModel.Adapt(specieEntity);
                     await _specieRepository.UpdateAsync(x => x.Url!.Equals(url), specieEntity, cancellationToken);
                 }
             }
@@ -198,7 +198,7 @@ namespace MayTheFourth.Application.Common.AppServices.PopulateDB
                 }
                 else
                 {
-                    vehicleEntity.Adapt(vehicleModel);
+                    vehicleModel.Adapt(vehicleEntity);
                     await _vehicleRepository.UpdateAsync(x => x.Url!.Equals(url), vehicleEntity, cancellationToken);
                 }
             }
@@ -231,7 +231,7 @@ namespace MayTheFourth.Application.Common.AppServices.PopulateDB
                 }
                 else
                 {
-                    starshipEntity.Adapt(starshipModel);
+                    starshipModel.Adapt(starshipEntity);
                     await _starshipRepository.UpdateAsync(x => x.Url!.Equals(url), starshipEntity, cancellationToken);
                 }
             }

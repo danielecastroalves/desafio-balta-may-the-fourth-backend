@@ -13,6 +13,7 @@ namespace MayTheFourth.Domain.Entities
         public string Cargo_Capacity { get; set; }
         public string Consumables { get; set; }
         public string Vehicle_Class { get; set; }
+        public List<string> Pilots { get; set; }
         public List<string> Films { get; set; }
         public DateTime Created { get; set; }
         public DateTime Edited { get; set; }
