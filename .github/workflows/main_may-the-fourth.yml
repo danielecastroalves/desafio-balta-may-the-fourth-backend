@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'may-the-fourth'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_335681F8E3CB49B8812379599A9F36E0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FBB487F7D83B4E4FA035B5DB2366F778 }}
           package: .
