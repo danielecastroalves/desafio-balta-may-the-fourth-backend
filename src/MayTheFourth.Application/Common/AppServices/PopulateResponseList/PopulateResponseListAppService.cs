@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MayTheFourth.Application.Common.ClassBase;
-using MayTheFourth.Application.Features.Films;
 using MayTheFourth.Domain.Entities;
 
-namespace MayTheFourth.Application.Common.AppServices.PopulateEntityList
+namespace MayTheFourth.Application.Common.AppServices.PopulateResponseList
 {
-    public class PopulateEntitiesResponseAppService : IPopulateEntitiesResponseAppService
+    public class PopulateResponseListAppService : IPopulateResponseListAppService
     {
         public List<ItemDescription>? GetFilmsList(List<string> urlList, IEnumerable<FilmEntity> filmList)
         {

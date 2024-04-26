@@ -14,7 +14,5 @@ namespace MayTheFourth.Application.Features.Films
         public List<ItemDescription>? Planets { get; set; }
         public List<ItemDescription>? Vehicles { get; set; }
         public List<ItemDescription>? Starships { get; set; }
-
     }
-
 }

@@ -1,13 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MediatR;
 
 namespace MayTheFourth.Application.Features.People.GetPeopleById
 {
-    public sealed record GetPeopleByIdRequest(int id) : IRequest<GetPeopleResponse>
-    {
-    }
+    public sealed record GetPeopleByIdRequest(int Id) : IRequest<GetPeopleResponse?>;
 }

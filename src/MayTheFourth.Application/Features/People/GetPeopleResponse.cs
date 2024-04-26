@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MayTheFourth.Application.Common.ClassBase;
-
 
 namespace MayTheFourth.Application.Features.People
 {
     public class GetPeopleResponse
     {
-        public string Name { get; set; }  = null!;
+        public string Name { get; set; } = null!;
         public string Height { get; set; } = null!;
         public string Mass { get; set; } = null!;
         public string Haircolor { get; set; } = null!;
@@ -19,14 +13,5 @@ namespace MayTheFourth.Application.Features.People
         public string Birthyear { get; set; } = null!;
         public string Gender { get; set; } = null!;
         public List<ItemDescription>? Movies { get; set; }
-
     }
-
-    public class MoviesDescriptionToPeople
-    {
-        public  int? Id { get; set; }
-        public string Title { get; set; }
-    }
-
-
 }

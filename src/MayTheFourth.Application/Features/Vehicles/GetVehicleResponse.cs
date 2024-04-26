@@ -17,6 +17,4 @@ namespace MayTheFourth.Application.Features.Vehicles
         public string VehicleClass { get; set; } = null!;
         public List<ItemDescription>? Movies { get; set; } = null!;
     }
-
-
 }

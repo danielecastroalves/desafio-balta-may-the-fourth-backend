@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Mapster;
-using MayTheFourth.Application.Common.AppServices.PopulateEntityList;
+using MayTheFourth.Application.Common.AppServices.PopulateResponseList;
 using MayTheFourth.Application.Common.Repositories;
 using MayTheFourth.Domain.Entities;
 using MediatR;
@@ -15,13 +10,18 @@ namespace MayTheFourth.Application.Features.Vehicles.GetVehicle
     {
         private readonly IRepository<FilmEntity> _filmRepository;
         private readonly IRepository<VehicleEntity> _vehicleRepository;
-        private readonly IPopulateEntitiesResponseAppService _populateEntitiesResponseAppService;
+        private readonly IPopulateResponseListAppService _populateResponseListAppService;
 
-        public GetVehicleRequestHandler(IRepository<FilmEntity> filmRepository, IRepository<VehicleEntity> vehicleRepository, IPopulateEntitiesResponseAppService populateEntitiesResponseAppService)
+        public GetVehicleRequestHandler
+        (
+            IRepository<FilmEntity> filmRepository,
+            IRepository<VehicleEntity> vehicleRepository,
+            IPopulateResponseListAppService populateResponseListAppService
+        )
         {
             _filmRepository = filmRepository;
             _vehicleRepository = vehicleRepository;
-            _populateEntitiesResponseAppService = populateEntitiesResponseAppService;
+            _populateResponseListAppService = populateResponseListAppService;
         }
 
         public async Task<List<GetVehicleResponse>> Handle(GetVehicleRequest request, CancellationToken cancellationToken)
@@ -33,21 +33,16 @@ namespace MayTheFourth.Application.Features.Vehicles.GetVehicle
 
             var responseList = new List<GetVehicleResponse>();
 
-            foreach(var vehicle in vehicleList)
+            foreach (var vehicle in vehicleList)
             {
                 var response = vehicle.Adapt<GetVehicleResponse>();
 
-                response.Movies = _populateEntitiesResponseAppService.GetFilmsList(vehicle.Films, filmList);
+                response.Movies = _populateResponseListAppService.GetFilmsList(vehicle.Films, filmList);
 
-                responseList.Add(response);               
+                responseList.Add(response);
             }
 
             return responseList;
-
         }
-            
-
-
-    } 
+    }
 }
-
