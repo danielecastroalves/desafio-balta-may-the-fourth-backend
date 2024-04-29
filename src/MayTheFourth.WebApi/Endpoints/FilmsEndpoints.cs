@@ -29,18 +29,23 @@ namespace MayTheFourth.WebApi.Endpoints
         private static async Task<IResult> GetFilmesAsync
         (
             [FromServices] IMediator mediator,
+            int page,
+            int take,
             CancellationToken cancellationToken
         )
         {
             var result = await mediator.Send(new GetFilmsRequest(), cancellationToken);
 
-            return Results.Ok(result);
+            var total = result.Count;
+            result = result.Skip((page - 1) * take).Take(take).ToList();
+
+            return Results.Ok(new { total, CurrentPage = page, take, result });
         }
 
         private static async Task<IResult> GetFilmesByIdAsync
         (
-           [FromRoute] int id,
-           [FromServices] IMediator mediator
+            [FromRoute] int id,
+            [FromServices] IMediator mediator
         )
         {
             var result = await mediator.Send(new GetFilmsByIdRequest(id));
