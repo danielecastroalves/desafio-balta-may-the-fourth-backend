@@ -5,7 +5,7 @@ using MayTheFourth.Application.Common.Repositories;
 using MayTheFourth.Domain.Entities;
 using MediatR;
 
-namespace MayTheFourth.Application.Features.Naves.GetStarshipById
+namespace MayTheFourth.Application.Features.Starships.GetStarshipsById
 {
     public class GetStarshipByIdRequestHandler : IRequestHandler<GetStarshipByIdRequest, GetStarshipsResponse?>
     {

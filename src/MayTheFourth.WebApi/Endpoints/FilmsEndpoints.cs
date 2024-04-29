@@ -1,5 +1,5 @@
 using MayTheFourth.Application.Features.Films;
-using MayTheFourth.Application.Features.Films.GetFilmes;
+using MayTheFourth.Application.Features.Films.GetFilms;
 using MayTheFourth.Application.Features.Films.GetFilmsById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -10,8 +10,8 @@ namespace MayTheFourth.WebApi.Endpoints
     {
         public static void MapFilmsEndpoints(this WebApplication app)
         {
-            var root = app.MapGroup("/api/filmes")
-                .WithTags("Filmes")
+            var root = app.MapGroup("/api/films")
+                .WithTags("Films")
                 .WithOpenApi();
 
             root.MapGet("/", GetFilmesAsync)

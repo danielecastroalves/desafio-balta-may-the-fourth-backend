@@ -1,7 +1,8 @@
 using Mapster;
 using MayTheFourth.Application.Features.Films;
-using MayTheFourth.Application.Features.Naves;
 using MayTheFourth.Application.Features.People;
+using MayTheFourth.Application.Features.Planets;
+using MayTheFourth.Application.Features.Starships;
 using MayTheFourth.Application.Features.Vehicles;
 using MayTheFourth.Domain.Entities;
 
@@ -29,6 +30,23 @@ namespace MayTheFourth.Application.Common.Mapster
                 .Map(dest => dest.Birthyear, src => src.Birth_year)
                 .Ignore(dest => dest.Movies);
 
+            config
+                .NewConfig<PlanetEntity, GetPlanetResponse>()
+                .Map(dest => dest.RotationPeriod, src => src.Rotation_Period)
+                .Map(dest => dest.OrbitalPeriod, src => src.Orbital_Period)
+                .Map(dest => dest.SurfaceWater, src => src.Surface_Water)
+                .Ignore(dest => dest.Characters)
+                .Ignore(dest => dest.Movies);
+
+            config
+                .NewConfig<StarshipEntity, GetStarshipsResponse>()
+                .Map(dest => dest.CargoCapacity, src => src.Cargo_Capacity)
+                .Map(dest => dest.Class, src => src.Starship_Class)
+                .Map(dest => dest.CostInCredits, src => src.Cost_In_Credits)
+                .Map(dest => dest.HyperdriveRating, src => src.Hyperdrive_Rating)
+                .Map(dest => dest.MaxSpeed, src => src.Max_Atmosphering_Speed)
+                .Ignore(dest => dest.Movies);
+
             config.
                  NewConfig<VehicleEntity, GetVehicleResponse>()
                 .Map(dest => dest.CostInCredits, src => src.Cost_In_Credits)
@@ -36,13 +54,6 @@ namespace MayTheFourth.Application.Common.Mapster
                 .Map(dest => dest.CargoCapacity, src => src.Cargo_Capacity)
                 .Map(dest => dest.VehicleClass, src => src.Vehicle_Class)
                 .Ignore(dest => dest.Movies);
-
-            config
-                .NewConfig<StarshipEntity, GetStarshipsResponse>()
-                .Map(dest => dest.MaxSpeed, src => src.MaxAtmospheringSpeed)
-                .Map(dest => dest.Class, src => src.StarshipClass)
-                .Ignore(dest => dest.Movies)
-                .Ignore(dest => dest.Pilots);
         }
     }
 }

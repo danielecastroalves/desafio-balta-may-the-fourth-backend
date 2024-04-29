@@ -1,24 +1,22 @@
-﻿using MayTheFourth.Application.Common.ClassBase;
+using MayTheFourth.Application.Common.ClassBase;
 
-namespace MayTheFourth.Application.Features.Naves
+namespace MayTheFourth.Application.Features.Starships
 {
     public class GetStarshipsResponse
     {
         public string Name { get; set; } = null!;
         public string Model { get; set; } = null!;
         public string Manufacturer { get; set; } = null!;
-        public float CostInCredits { get; set; }
-        public float Length { get; set; }
-        public double MaxSpeed { get; set; }
-        public int Crew { get; set; }
-        public int Passengers { get; set; }
-        public double CargoCapacity { get; set; }
-        public float HyperdriveRating { get; set; }
-        public int MGTL { get; set; }
+        public string CostInCredits { get; set; } = null!;
+        public string Length { get; set; } = null!;
+        public string MaxSpeed { get; set; } = null!;
+        public string Crew { get; set; } = null!;
+        public string Passengers { get; set; } = null!;
+        public string CargoCapacity { get; set; } = null!;
+        public string HyperdriveRating { get; set; } = null!;
+        public string MGTL { get; set; } = null!;
         public string Consumables { get; set; } = null!;
         public string Class { get; set; } = null!;
         public List<ItemDescription>? Movies { get; set; }
-        public List<object>? Pilots { get; set; }
     }
-
 }

@@ -4,7 +4,7 @@ using MayTheFourth.Application.Common.Repositories;
 using MayTheFourth.Domain.Entities;
 using MediatR;
 
-namespace MayTheFourth.Application.Features.Films.GetFilmes
+namespace MayTheFourth.Application.Features.Films.GetFilms
 {
     public class GetFilmsRequestHandler : IRequestHandler<GetFilmsRequest, List<GetFilmsResponse>>
     {

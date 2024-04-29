@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace MayTheFourth.Application.Features.Naves.GetStarships
+namespace MayTheFourth.Application.Features.Starships.GetStarships
 {
-  public sealed class GetStarshipsRequest : IRequest<List<GetStarshipsResponse>>;
+    public sealed class GetStarshipsRequest : IRequest<List<GetStarshipsResponse>>;
 }

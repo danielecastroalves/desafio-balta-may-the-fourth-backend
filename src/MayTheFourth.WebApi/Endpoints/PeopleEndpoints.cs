@@ -23,7 +23,13 @@ namespace MayTheFourth.WebApi.Endpoints
                 .WithDescription("Endpoint para leitura e retorno de um personagem cadastrado pelo Id correspondente");
         }
 
-        public static async Task<IResult> GetPeopleAsync(int page, int take, [FromServices] IMediator mediator, CancellationToken cancellationToken)
+        public static async Task<IResult> GetPeopleAsync
+        (
+            int page,
+            int take,
+            [FromServices] IMediator mediator,
+            CancellationToken cancellationToken
+        )
         {
             var result = await mediator.Send(new GetPeopleRequest(), cancellationToken);
 
@@ -33,7 +39,12 @@ namespace MayTheFourth.WebApi.Endpoints
             return Results.Ok(new { total, CurrentPage = page, take, result });
         }
 
-        public static async Task<IResult> GetPeopleByIdAsync([FromRoute] int id, [FromServices] IMediator mediator, CancellationToken cancellationToken)
+        public static async Task<IResult> GetPeopleByIdAsync
+        (
+            [FromRoute] int id,
+            [FromServices] IMediator mediator,
+            CancellationToken cancellationToken
+        )
         {
             var result = await mediator.Send(new GetPeopleByIdRequest(id), cancellationToken);
 
