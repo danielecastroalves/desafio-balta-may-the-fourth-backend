@@ -5,10 +5,10 @@ namespace MayTheFourth.Domain.Models
         public string Name { get; set; }
         public string Height { get; set; }
         public string Mass { get; set; }
-        public string HairColor { get; set; }
-        public string SkinColor { get; set; }
-        public string EyeColor { get; set; }
-        public string BirthYear { get; set; }
+        public string Hair_color { get; set; }
+        public string Skin_color { get; set; }
+        public string Eye_color { get; set; }
+        public string Birth_year { get; set; }
         public string Gender { get; set; }
         public string Homeworld { get; set; }
         public List<string> Films { get; set; }
