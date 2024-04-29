@@ -22,9 +22,6 @@ namespace MayTheFourth.Application.Common.Mapster
                 .Ignore(dest => dest.Starships);
 
             config
-                .NewConfig<StarshipEntity, GetStarshipsResponse>()
-                .Map(dest => dest.MaxSpeed, src => src.MaxAtmospheringSpeed)
-                .Map(dest => dest.Class, src => src.StarshipClass);
                 .NewConfig<PersonEntity, GetPeopleResponse>()
                 .Map(dest => dest.Haircolor, src => src.Hair_color)
                 .Map(dest => dest.Skincolor, src => src.Skin_color)
@@ -39,6 +36,13 @@ namespace MayTheFourth.Application.Common.Mapster
                 .Map(dest => dest.CargoCapacity, src => src.Cargo_Capacity)
                 .Map(dest => dest.VehicleClass, src => src.Vehicle_Class)
                 .Ignore(dest => dest.Movies);
+
+            config
+                .NewConfig<StarshipEntity, GetStarshipsResponse>()
+                .Map(dest => dest.MaxSpeed, src => src.MaxAtmospheringSpeed)
+                .Map(dest => dest.Class, src => src.StarshipClass)
+                .Ignore(dest => dest.Movies)
+                .Ignore(dest => dest.Pilots);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace MayTheFourth.Application.Features.Naves
+﻿using MayTheFourth.Application.Common.ClassBase;
+
+namespace MayTheFourth.Application.Features.Naves
 {
     public class GetStarshipsResponse
     {
@@ -16,11 +18,7 @@
         public string Consumables { get; set; } = null!;
         public string Class { get; set; } = null!;
         public List<ItemDescription>? Movies { get; set; }
+        public List<object>? Pilots { get; set; }
     }
 
-    public class ItemDescription
-    {
-        public int? Id { get; set; }
-        public string? Title { get; set; }
-    }
 }

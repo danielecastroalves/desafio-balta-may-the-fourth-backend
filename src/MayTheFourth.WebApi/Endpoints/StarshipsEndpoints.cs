@@ -1,6 +1,6 @@
 using MayTheFourth.Application.Features.Naves;
 using MayTheFourth.Application.Features.Naves.GetStarships;
-using MayTheFourth.Application.Features.Naves.GetStarshipsById;
+using MayTheFourth.Application.Features.Naves.GetStarshipById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -42,7 +42,7 @@ namespace MayTheFourth.WebApi.Endpoints
             [FromServices] IMediator mediator
         )
         {
-            var result = await mediator.Send(new GetStarshipsByIdRequest(id));
+            var result = await mediator.Send(new GetStarshipByIdRequest(id));
 
             return Results.Ok(result);
         }

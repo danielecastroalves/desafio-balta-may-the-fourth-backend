@@ -1,4 +1,4 @@
-using MayTheFourth.Application.Common.AppServices.PopulateStarships;
+using MayTheFourth.Application.Common.AppServices.PopulateResponseList;
 using MayTheFourth.Application.Common.Repositories;
 using MayTheFourth.Domain.Entities;
 using MediatR;
@@ -10,18 +10,18 @@ namespace MayTheFourth.Application.Features.Naves.GetStarships
   {
     private readonly IRepository<FilmEntity> _filmRepository;
     private readonly IRepository<StarshipEntity> _starshipRepository;
-    private readonly IPopulateStarshipsResponseAppService _populateStarshipsAppService;
+    private readonly IPopulateResponseListAppService _populateResponseListAppService;
 
     public GetStarshipRequestHandler
     (
       IRepository<FilmEntity> filmRepository,
       IRepository<StarshipEntity> starshipRepository,
-      IPopulateStarshipsResponseAppService populateStarshipsAppService
+      IPopulateResponseListAppService populateResponseListAppService
     )
     {
       _filmRepository = filmRepository;
       _starshipRepository = starshipRepository;
-      _populateStarshipsAppService = populateStarshipsAppService;
+      _populateResponseListAppService = populateResponseListAppService;
     }
 
     public async Task<List<GetStarshipsResponse>> Handle(GetStarshipsRequest request, CancellationToken cancellationToken)
@@ -29,15 +29,15 @@ namespace MayTheFourth.Application.Features.Naves.GetStarships
       cancellationToken.ThrowIfCancellationRequested();
 
       var filmList = await _filmRepository.GetListByFilterAsync(f => f.Active, cancellationToken);
-      var starshipsList = await _starshipRepository.GetByFilterAsync(s => s.Active, cancellationToken);
+      var starshipList = await _starshipRepository.GetListByFilterAsync(s => s.Active, cancellationToken);
 
       var responseList = new List<GetStarshipsResponse>();
 
-      foreach (var starship in starshipsList)
+      foreach (var starship in starshipList)
       {
         var response = starship.Adapt<GetStarshipsResponse>();
 
-        response.Movies = _populateStarshipAppService.GetFilmsList(starship, filmList);
+        response.Movies = _populateResponseListAppService.GetFilmsList(starship.Films!, filmList);
 
         responseList.Add(response);
       }
