@@ -21,10 +21,23 @@ builder.Services.AddSwaggerGen(c =>
     }
  );
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MandaloriansPolicy", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 // Dependency Injections
 ConfigureBindingsDependencyInjection.RegisterBindings(builder.Services, builder.Configuration);
 
 var app = builder.Build();
+
+
+app.UseCors("MandaloriansPolicy");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
