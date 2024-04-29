@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MayTheFourth.Application.Common.ClassBase;
 
 namespace MayTheFourth.Application.Features.Planets
 {
@@ -18,7 +19,7 @@ namespace MayTheFourth.Application.Features.Planets
         public string Surface_Water { get; set; } = null!;
         public string Population { get; set; } = null!;
         public List<string> Residents { get; set; } = null!;
-        public List<string> Films { get; set; } = null!;
+        public List<ItemDescription>? Movies { get; set; } = null!;
         public DateTime Created { get; set; }
         public DateTime Edited { get; set; }
         public string Url { get; set; } = null!;

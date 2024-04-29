@@ -43,8 +43,7 @@ namespace MayTheFourth.Application.Planets.GetPlanetById.GetPlanetById
 
             var result = planet.Adapt<GetPlanetResponse>();
 
-            // TODO: Populate films
-            // result.Films = _populateResponseListAppService.GetFilmsList(planet.Films, movieList);
+            result.Movies = _populateResponseListAppService.GetFilmsList(planet.Films, movieList);
 
             return result;
         }

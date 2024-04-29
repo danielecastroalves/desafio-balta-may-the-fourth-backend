@@ -39,8 +39,7 @@ namespace MayTheFourth.Application.Features.Vehicles.GetVehicle
             {
                 var response = planet.Adapt<GetPlanetResponse>();
 
-                // TODO: Populate films.
-                // response.Films = _populateResponseListAppService.GetFilmsList(planet.Films, filmList);
+                response.Movies = _populateResponseListAppService.GetFilmsList(planet.Films, filmList);
                 responseList.Add(response);
             }
 
