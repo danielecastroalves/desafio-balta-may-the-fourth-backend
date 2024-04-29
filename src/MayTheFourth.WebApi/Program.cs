@@ -36,7 +36,6 @@ ConfigureBindingsDependencyInjection.RegisterBindings(builder.Services, builder.
 
 var app = builder.Build();
 
-
 app.UseCors("MandaloriansPolicy");
 
 // Configure the HTTP request pipeline.
